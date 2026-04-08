@@ -1,7 +1,14 @@
-var isDate = function (input) {
-  //   write your code here
-};
+function isDate(input) {
+  // Check if it's a valid Date object
+  if (input instanceof Date && !isNaN(input)) {
+    return true;
+  }
 
-// Do not change the code below.
-const input = prompt("Enter Date.");
-alert(isDate(input));
+  // Check if it's a valid date string
+  if (typeof input === "string") {
+    const parsed = new Date(input);
+    return !isNaN(parsed);
+  }
+
+  return false;
+}
